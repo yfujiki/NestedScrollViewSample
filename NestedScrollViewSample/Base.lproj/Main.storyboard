@@ -20,18 +20,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlN-FJ-sBx" customClass="ContainerScrollContentView" customModule="NestedScrollViewSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1760"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-pT-SeB">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="880"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </tableView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7BO-rB-sEZ">
-                                                <rect key="frame" x="0.0" y="880" width="414" height="880"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            </tableView>
-                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1760" id="I9h-TU-Ebt"/>
@@ -59,10 +47,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="DlN-FJ-sBx" id="RyJ-Ig-U7B"/>
                         <outlet property="heightDimensionConstraint" destination="I9h-TU-Ebt" id="GlQ-Js-0s3"/>
                         <outlet property="scrollView" destination="zzW-QZ-mx3" id="4Bv-f9-1jp"/>
-                        <outlet property="tableView1" destination="iIA-pT-SeB" id="QdE-XW-E7O"/>
-                        <outlet property="tableView2" destination="7BO-rB-sEZ" id="Zti-X1-o0l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

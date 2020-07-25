@@ -12,6 +12,11 @@ var observersDict: [UIView: [NSObjectProtocol]] = [:]
 
 class ContainerScrollView: UIScrollView {
 
+    func didAddContentSubview(_ subview: UIView) {
+        guard let scrollView = subview as? UIScrollView else { return }
+        scrollView.isScrollEnabled = false
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -19,13 +24,14 @@ class ContainerScrollView: UIScrollView {
 
         var yOffsetCurrentSubview = CGFloat(0)
 
-        for (index, scrollSubview) in contentView.subviews.filter({ $0 is UIScrollView }).enumerated() {
+        for scrollSubview in contentView.subviews.filter({ $0 is UIScrollView }) {
             let scrollView = scrollSubview as! UIScrollView
+            let tag = scrollView.tag
 
             let offsetY = contentOffset.y - yOffsetCurrentSubview
             let frameBottomY = offsetY + frame.height
 
-            NSLog("\(index): \(offsetY) - \(frameBottomY)")
+            NSLog("\(tag): \(offsetY) - \(frameBottomY)")
             if frameBottomY <= 0 {
                 scrollView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: 0)
                 scrollView.contentOffset = CGPoint(x: 0, y: 0)
@@ -37,13 +43,13 @@ class ContainerScrollView: UIScrollView {
                 let subViewHeight = min(scrollView.contentSize.height - offsetY, frame.height)
                 scrollView.frame = CGRect(x: 0, y: offsetY + yOffsetCurrentSubview, width: scrollView.frame.width, height: subViewHeight)
                 scrollView.contentOffset = CGPoint(x: 0, y: offsetY)
-                NSLog("\(index): \(scrollView.frame)")
+                NSLog("\(tag): \(scrollView.frame)")
             } else {
                 // Upper part is visible
                 let subViewHeight = min(frameBottomY, frame.height)
                 scrollView.frame = CGRect(x: 0, y: yOffsetCurrentSubview, width: scrollView.frame.width, height: subViewHeight)
                 scrollView.contentOffset = CGPoint(x: 0, y: 0)
-                NSLog("\(index): \(scrollView.frame)")
+                NSLog("\(tag): \(scrollView.frame)")
             }
 
             yOffsetCurrentSubview += scrollView.contentSize.height
@@ -52,7 +58,10 @@ class ContainerScrollView: UIScrollView {
 }
 
 class ContainerScrollContentView: UIView {
-
+    override func didAddSubview(_ subview: UIView) {
+        guard let superScrollView = superview as? ContainerScrollView else { return }
+        superScrollView.didAddContentSubview(subview)
+    }
 }
 
 

@@ -10,29 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var tableView1: UITableView!
-    @IBOutlet var tableView2: UITableView!
+    static let numberOfRows = 60
+
+    @IBOutlet var scrollView: ContainerScrollView!
+    @IBOutlet var contentView: ContainerScrollContentView!
 
     @IBOutlet var heightDimensionConstraint: NSLayoutConstraint!
 
-    static let numberOfRows = 200
+    var tableViews: [UITableView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-//        setupKVO()
     }
 
     private func setupViews() {
-        tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView2.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        (0..<4).forEach { (_) in
+            let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            tableView.dataSource = self
+            tableViews.append(tableView)
+            contentView.addSubview(tableView)
+        }
 
-        tableView1.dataSource = self
-        tableView2.dataSource = self
-
-        heightDimensionConstraint.constant = CGFloat(Self.numberOfRows * 2 * 44)
+        heightDimensionConstraint.constant = CGFloat(Self.numberOfRows * tableViews.count * 44)
     }
 }
 
@@ -47,11 +49,22 @@ extension ViewController: UITableViewDataSource {
 
         cell.textLabel?.text = "\(indexPath)"
 
-        if tableView == tableView1 {
-            cell.contentView.backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
-        } else {
-            cell.contentView.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+        let index = tableViews.firstIndex(of: tableView)
+        let color: UIColor
+        switch index {
+        case 0:
+            color = .yellow
+        case 1:
+            color = .red
+        case 2:
+            color = .blue
+        case 3:
+            color = .green
+        default:
+            color = .systemPink
         }
+        cell.contentView.backgroundColor = color.withAlphaComponent(0.5)
+
         return cell
     }
 }
