@@ -12,6 +12,46 @@ var observersDict: [UIView: [NSObjectProtocol]] = [:]
 
 class ContainerScrollView: UIScrollView {
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupViews()
+    }
+
+    private func setupViews() {
+        _ = contentView
+    }
+
+    private var contentViewHeightConstraint: NSLayoutConstraint!
+
+    private(set) lazy var contentView: ContainerScrollContentView = {
+        let contentView = ContainerScrollContentView()
+
+        addSubview(contentView)
+
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+
+        self.contentViewHeightConstraint = contentView.heightAnchor.constraint(equalToConstant: 0)
+        self.contentViewHeightConstraint.isActive = true
+
+        return contentView
+    }()
+
     func didAddContentSubview(_ subview: UIView) {
         guard let scrollView = subview as? UIScrollView else { return }
         scrollView.isScrollEnabled = false
@@ -54,6 +94,9 @@ class ContainerScrollView: UIScrollView {
 
             yOffsetCurrentSubview += scrollView.contentSize.height
         }
+
+        contentSize = CGSize(width: self.bounds.width, height: yOffsetCurrentSubview)
+        contentViewHeightConstraint.constant = yOffsetCurrentSubview
     }
 }
 
@@ -63,5 +106,3 @@ class ContainerScrollContentView: UIView {
         superScrollView.didAddContentSubview(subview)
     }
 }
-
-

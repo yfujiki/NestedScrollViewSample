@@ -13,9 +13,6 @@ class ViewController: UIViewController {
     static let numberOfRows = 60
 
     @IBOutlet var scrollView: ContainerScrollView!
-    @IBOutlet var contentView: ContainerScrollContentView!
-
-    @IBOutlet var heightDimensionConstraint: NSLayoutConstraint!
 
     var tableViews: [UITableView] = []
 
@@ -31,10 +28,8 @@ class ViewController: UIViewController {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
             tableView.dataSource = self
             tableViews.append(tableView)
-            contentView.addSubview(tableView)
+            scrollView.contentView.addSubview(tableView)
         }
-
-        heightDimensionConstraint.constant = CGFloat(Self.numberOfRows * tableViews.count * 44)
     }
 }
 
