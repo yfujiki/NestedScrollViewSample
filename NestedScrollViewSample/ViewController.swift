@@ -14,15 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet var tableView1: UITableView!
     @IBOutlet var tableView2: UITableView!
 
-    @IBOutlet var tableView1HeightAnchor: NSLayoutConstraint!
-    @IBOutlet var tableView2HeightAnchor: NSLayoutConstraint!
+    @IBOutlet var heightDimensionConstraint: NSLayoutConstraint!
 
-    static let numberOfRows = 100
+    static let numberOfRows = 200
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
+//        setupKVO()
     }
 
     private func setupViews() {
@@ -32,8 +32,7 @@ class ViewController: UIViewController {
         tableView1.dataSource = self
         tableView2.dataSource = self
 
-        tableView1HeightAnchor.constant = CGFloat(Self.numberOfRows * 44)
-        tableView2HeightAnchor.constant = CGFloat(Self.numberOfRows * 44)
+        heightDimensionConstraint.constant = CGFloat(Self.numberOfRows * 2 * 44)
     }
 }
 
@@ -55,7 +54,4 @@ extension ViewController: UITableViewDataSource {
         }
         return cell
     }
-
-
-
 }

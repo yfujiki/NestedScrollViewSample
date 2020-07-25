@@ -14,6 +14,7 @@
 		DB8A476724CBD81F00332AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB8A476624CBD81F00332AFD /* Assets.xcassets */; };
 		DB8A476A24CBD81F00332AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8A476824CBD81F00332AFD /* LaunchScreen.storyboard */; };
 		DB8A477524CBD81F00332AFD /* NestedScrollViewSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A477424CBD81F00332AFD /* NestedScrollViewSampleTests.swift */; };
+		DBCA77DE24CBE14A00BB138E /* ContainerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCA77DD24CBE14A00BB138E /* ContainerScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		DB8A477024CBD81F00332AFD /* NestedScrollViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NestedScrollViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8A477424CBD81F00332AFD /* NestedScrollViewSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedScrollViewSampleTests.swift; sourceTree = "<group>"; };
 		DB8A477624CBD81F00332AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBCA77DD24CBE14A00BB138E /* ContainerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				DB8A476624CBD81F00332AFD /* Assets.xcassets */,
 				DB8A476824CBD81F00332AFD /* LaunchScreen.storyboard */,
 				DB8A476B24CBD81F00332AFD /* Info.plist */,
+				DBCA77DD24CBE14A00BB138E /* ContainerScrollView.swift */,
 			);
 			path = NestedScrollViewSample;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				DB8A476224CBD81D00332AFD /* ViewController.swift in Sources */,
 				DB8A475E24CBD81D00332AFD /* AppDelegate.swift in Sources */,
+				DBCA77DE24CBE14A00BB138E /* ContainerScrollView.swift in Sources */,
 				DB8A476024CBD81D00332AFD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
