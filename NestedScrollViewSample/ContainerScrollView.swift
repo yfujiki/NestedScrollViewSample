@@ -73,10 +73,12 @@ class ContainerScrollView: UIScrollView {
 
             NSLog("\(tag): \(offsetY) - \(frameBottomY)")
             if frameBottomY <= 0 {
-                scrollView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: 0)
+                // Lower than the window
+                scrollView.frame = CGRect(x: 0, y: yOffsetCurrentSubview, width: scrollView.frame.width, height: 0)
                 scrollView.contentOffset = CGPoint(x: 0, y: 0)
             } else if offsetY >= scrollView.contentSize.height {
-                scrollView.frame = CGRect(x: 0, y: offsetY, width: scrollView.frame.width, height: 0)
+                // Higher than the window
+                scrollView.frame = CGRect(x: 0, y: scrollView.contentSize.height + yOffsetCurrentSubview, width: scrollView.frame.width, height: 0)
                 scrollView.contentOffset = CGPoint(x: 0, y: offsetY)
             } else if offsetY >= 0 {
                 // Lower part is visible
