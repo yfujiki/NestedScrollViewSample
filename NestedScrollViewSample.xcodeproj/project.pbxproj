@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB5E393124EE406F0094713E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E393024EE406F0094713E /* TableViewController.swift */; };
+		DB5E393324EE41AE0094713E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E393224EE41AE0094713E /* PageViewController.swift */; };
 		DB8A475E24CBD81D00332AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A475D24CBD81D00332AFD /* AppDelegate.swift */; };
 		DB8A476024CBD81D00332AFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A475F24CBD81D00332AFD /* SceneDelegate.swift */; };
 		DB8A476224CBD81D00332AFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A476124CBD81D00332AFD /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB5E393024EE406F0094713E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		DB5E393224EE41AE0094713E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		DB8A475A24CBD81D00332AFD /* NestedScrollViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestedScrollViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8A475D24CBD81D00332AFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB8A475F24CBD81D00332AFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				DB8A475D24CBD81D00332AFD /* AppDelegate.swift */,
 				DB8A475F24CBD81D00332AFD /* SceneDelegate.swift */,
 				DB8A476124CBD81D00332AFD /* ViewController.swift */,
+				DB5E393024EE406F0094713E /* TableViewController.swift */,
+				DB5E393224EE41AE0094713E /* PageViewController.swift */,
 				DB8A476324CBD81D00332AFD /* Main.storyboard */,
 				DB8A476624CBD81F00332AFD /* Assets.xcassets */,
 				DB8A476824CBD81F00332AFD /* LaunchScreen.storyboard */,
@@ -206,6 +212,8 @@
 				DB8A476224CBD81D00332AFD /* ViewController.swift in Sources */,
 				DB8A475E24CBD81D00332AFD /* AppDelegate.swift in Sources */,
 				DBCA77DE24CBE14A00BB138E /* ContainerScrollView.swift in Sources */,
+				DB5E393324EE41AE0094713E /* PageViewController.swift in Sources */,
+				DB5E393124EE406F0094713E /* TableViewController.swift in Sources */,
 				DB8A476024CBD81D00332AFD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

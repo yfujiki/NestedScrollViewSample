@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static let numberOfRows = 100
+    static let numberOfRows = 40
 
     @IBOutlet var scrollView: ContainerScrollView!
 
@@ -23,13 +23,19 @@ class ViewController: UIViewController {
     }
 
     private func setupViews() {
-        (0..<4).forEach { (_) in
+        (0..<1).forEach { (_) in
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
             tableView.dataSource = self
             tableViews.append(tableView)
             scrollView.contentView.addSubview(tableView)
         }
+
+        let pageVC = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+
+        addChild(pageVC)
+        scrollView.contentView.addSubview(pageVC.view)
+        pageVC.didMove(toParent: self)
     }
 }
 
