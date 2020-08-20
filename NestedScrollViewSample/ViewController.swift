@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static let numberOfRows = 60
+    static let numberOfRows = 100
 
     @IBOutlet var scrollView: ContainerScrollView!
 
