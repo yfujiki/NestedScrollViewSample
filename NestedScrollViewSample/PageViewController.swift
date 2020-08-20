@@ -11,6 +11,7 @@ import UIKit
 class PageViewController: UIPageViewController {
 
     var vcs: [TableViewController] = []
+    var pageTransitionedTo: ((Int) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class PageViewController: UIPageViewController {
         }
 
         self.dataSource = self
+        self.delegate = self
 
         self.setViewControllers([vcs[0]], direction: .forward, animated: false, completion: nil)
     }
@@ -48,5 +50,16 @@ extension PageViewController: UIPageViewControllerDataSource {
         guard afterIndex < vcs.count else { return nil }
 
         return vcs[afterIndex]
+    }
+}
+
+extension PageViewController: UIPageViewControllerDelegate {
+
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let vc = pageViewController.viewControllers?.first as? TableViewController else { return }
+
+        let viewControllerIndex = vc.index
+        NSLog("Page transitions to \(viewControllerIndex)")
+        pageTransitionedTo?(viewControllerIndex)
     }
 }

@@ -32,6 +32,9 @@ class ViewController: UIViewController {
         }
 
         let pageVC = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pageVC.pageTransitionedTo = { index in
+            self.scrollView.currentPageIndex = index
+        }
 
         addChild(pageVC)
         scrollView.contentView.addSubview(pageVC.view)
@@ -54,7 +57,7 @@ extension ViewController: UITableViewDataSource {
         let color: UIColor
         switch index {
         case 0:
-            color = .yellow
+            color = .gray
         case 1:
             color = .red
         case 2:

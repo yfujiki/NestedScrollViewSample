@@ -12,6 +12,8 @@ var observersDict: [UIView: [NSObjectProtocol]] = [:]
 
 class ContainerScrollView: UIScrollView {
 
+    var currentPageIndex = 0
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -130,7 +132,7 @@ class ContainerScrollView: UIScrollView {
                 return className == "_UIQueuingScrollView"
             }) {
                 for pageView in queueingScrollView.subviews {
-                    if let scrollView = pageView.subviews.first?.subviews.first as? UIScrollView {
+                    if let scrollView = pageView.subviews.first?.subviews.first as? UIScrollView, scrollView.tag == currentPageIndex {
                         let tag = scrollView.tag
 
                         let offsetY = contentOffset.y - yOffsetCurrentSubview

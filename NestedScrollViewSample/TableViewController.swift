@@ -28,7 +28,11 @@ class TableViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
 
+        tableView.isScrollEnabled = false
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        tableView.tag = index
 
         return tableView
     }()
